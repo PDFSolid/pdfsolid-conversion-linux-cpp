@@ -1,38 +1,42 @@
-# PDFSolid Conversion SDK for C++
+# PDFSolid Conversion SDK for C++ (Linux)
 
-High-performance C++ SDK for converting PDF documents to Word, Excel, PowerPoint, HTML, Image, TXT, RTF, CSV, JSON, Markdown, Searchable PDF, and OFD formats. Powered by AI-driven OCR, Layout Analysis, and Table Recognition.
+High-performance C++ SDK for converting PDF to Word, Excel, PowerPoint, HTML, Image, TXT, RTF, CSV, JSON, Markdown, Searchable PDF, and OFD with AI-powered OCR, layout analysis, and table recognition.
 
 ## Features
 
-- **12+ Output Formats** — PDF to Word (.docx), Excel (.xlsx), PowerPoint (.pptx), HTML (.html), CSV (.csv), Image (.png/.jpg/.jpeg/.jpeg2000/.bmp/.tiff/.tga/.gif/.webp), TXT (.txt), RTF (.rtf), Searchable PDF (.pdf), OFD (.ofd), JSON (.json), Markdown (.md)
-- **AI-Powered Document Tools** — OCR, Layout Analysis, Table Recognition
-- **Custom AI Engine Support** — Plug in your own OCR/Layout/Table models via callbacks (SDK v4.1.0+)
-- **Layout Preservation** — Flow Layout and Box Layout modes
-- **Cross-Platform** — Windows, Linux, macOS
+- **PDF to Word** (.docx) — Flow and Box layout modes
+- **PDF to Excel** (.xlsx) — per-table, per-page, or per-document worksheet options
+- **PDF to PowerPoint** (.pptx)
+- **PDF to HTML** (.html) — single/multi-page with optional bookmark navigation
+- **PDF to CSV** (.csv)
+- **PDF to Image** (.png, .jpg, .jpeg, .jpeg2000, .bmp, .tiff, .tga, .gif, .webp) — color/grayscale/binary, configurable scaling
+- **PDF to Plain Text** (.txt) — optional table format preservation
+- **PDF to RTF** (.rtf)
+- **PDF to Searchable PDF** (.pdf) — OCR with transparent text layer
+- **PDF to OFD** (.ofd) — OCR, page background preservation, transparent text layer
+- **PDF to JSON** (.json) — structured data with table extraction
+- **PDF to Markdown** (.md)
 
-## System Requirements
+### AI-Powered Document Tools
 
-| Platform | Requirements | Development Environment |
-|----------|-------------|------------------------|
-| Windows | Windows 7/8/10/11 (32-bit, 64-bit), C++11+ | Visual Studio 2022+ |
-| Linux | Linux x64, C++11+ | GCC or Clang |
-| macOS | macOS 10.14+ (Intel, Apple Silicon), C++11+ | Xcode 13.0+ |
+- **OCR** — Optical Character Recognition for scanned documents and images
+- **Layout Analysis** — AI-based document structure parsing
+- **Table Recognition** — AI-based table structure reconstruction
+- **Custom AI Models** — plug in your own OCR, layout, or table engine via callbacks (SDK v1.1.0+)
 
-## SDK Package Structure
+## Requirements
 
-```
-├── doc/          # API reference and developer guide
-├── include/      # C++ header files
-├── lib/          # Dynamic libraries (x86/x64)
-├── resource/     # DocumentAI model resources
-├── samples/      # Sample projects and scripts
-├── legal.txt     # Legal and copyright information
-└── release_notes.txt
-```
+| Platform | System Requirements | Development Environment |
+| -------- | ------------------- | ----------------------- |
+| Linux | Linux x64, GLIBC 2.31+, C++11+ | GCC or Clang |
 
 ## Quick Start
 
-### 1. License Verification
+### 1. Get a License
+
+Contact [sales@pdfsolid.com](mailto:sales@pdfsolid.com) for a 30-day free trial or commercial license.
+
+### 2. Apply License and Initialize
 
 ```cpp
 #include "pdfsolid_conversion.h"
@@ -45,184 +49,73 @@ ErrorCode code = LibraryManager::LicenseVerify("LICENSE_KEY", "device_id", "app_
 if (code != ErrorCode::e_ErrSuccess) {
     return code;
 }
-```
-
-### 2. Initialize SDK Resources
-
-```cpp
 LibraryManager::Initialize("PDFSolid_Conversion_SDK/resource");
 ```
 
-### 3. Set DocumentAI Model (required for OCR / Layout / Table Recognition)
-
-```cpp
-LibraryManager::SetDocumentAIModel("path/documentai.model", -1);
-```
-
-### 4. Convert PDF
+### 3. Convert
 
 ```cpp
 ConvertOptions opt;
-CConvertCallback callback = {};
-
-// PDF to Word
-CPDFConversion::StartPDFToWord("input.pdf", "password", "output.docx", opt, &callback);
-
-// PDF to Excel
-CPDFConversion::StartPDFToExcel("input.pdf", "password", "output.xlsx", opt, &callback);
-
-// PDF to PowerPoint
-CPDFConversion::StartPDFToPpt("input.pdf", "password", "output.pptx", opt, &callback);
-
-// PDF to HTML
-CPDFConversion::StartPDFToHtml("input.pdf", "password", "output.html", opt, &callback);
-
-// PDF to Image
-opt.image_type = ImageType::e_PNG;
-CPDFConversion::StartPDFToImage("input.pdf", "password", "output", opt, &callback);
-
-// PDF to TXT
-CPDFConversion::StartPDFToTxt("input.pdf", "password", "output.txt", opt, &callback);
-
-// PDF to JSON
-CPDFConversion::StartPDFToJson("input.pdf", "password", "output.json", opt, &callback);
-
-// PDF to Markdown
-CPDFConversion::StartPDFToMarkdown("input.pdf", "password", "output.md", opt, &callback);
-
-// PDF to RTF
-CPDFConversion::StartPDFToRtf("input.pdf", "password", "output.rtf", opt, &callback);
-
-// PDF to CSV
-opt.excel_csv_format = true;
-CPDFConversion::StartPDFToExcel("input.pdf", "password", "output.csv", opt, &callback);
-
-// PDF to Searchable PDF (requires OCR)
-opt.enable_ocr = true;
-opt.languages[0] = OCRLanguage::e_English;
-opt.language_count = 1;
-opt.transparent_text = true;
-CPDFConversion::StartPDFToSearchablePdf("scan.pdf", "password", "output.pdf", opt, &callback);
-
-// PDF to OFD
-CPDFConversion::StartPDFToOfd("scan.pdf", "password", "output.ofd", opt, &callback);
+CPDFConversion::StartPDFToWord("input.pdf", "", "output.docx", opt, nullptr);
 ```
 
-### 5. Release Resources
+### Release Resources
 
 ```cpp
 LibraryManager::ReleaseDocumentAIModel();
 LibraryManager::Release();
 ```
 
-## Running the Demo
+## Conversion Examples
 
-### Windows
-
-1. Open `samples/demo_vs2022.sln` in Visual Studio 2022.
-2. Build via **Build > Build Solution**.
-3. Run the generated `.exe` in `samples/bin/`.
-
-### Linux / macOS
-
-```shell
-cd samples
-./RunDemo.sh
-```
-
-Output files are generated in `samples/output_files/`.
-
-## Conversion Options
-
-### Page Layout Mode
+### PDF to Excel
 
 ```cpp
 ConvertOptions opt;
-
-// Flow Layout — flexible, adapts to screen sizes
-opt.page_layout_mode = PageLayoutMode::e_Flow;
-
-// Box Layout — pixel-accurate positioning
-opt.page_layout_mode = PageLayoutMode::e_Box;
+opt.excel_worksheet_option = ExcelWorksheetOption::e_ForTable;
+CPDFConversion::StartPDFToExcel("input.pdf", "", "output.xlsx", opt, nullptr);
 ```
 
-### Page Range Selection
+### PDF to Image
 
 ```cpp
 ConvertOptions opt;
-strcpy(opt.page_ranges, "1-3,5,7-9");
-opt.output_document_per_page = true;
+opt.image_type = ImageType::e_PNG;
+opt.image_scaling = 2.0;
+CPDFConversion::StartPDFToImage("input.pdf", "", "output", opt, nullptr);
 ```
 
-### Image & Annotation Control
+### PDF to Searchable PDF (OCR)
 
 ```cpp
-ConvertOptions opt;
-opt.contain_image = true;
-opt.contain_annotation = true;
-```
+LibraryManager::SetDocumentAIModel("path/model");
 
-### OCR Configuration
-
-```cpp
 ConvertOptions opt;
 opt.enable_ocr = true;
 opt.languages[0] = OCRLanguage::e_English;
-opt.languages[1] = OCRLanguage::e_Chinese;
-opt.language_count = 2;
-opt.ocr_option = OCROption::e_ScanPage;
+opt.language_count = 1;
+opt.transparent_text = true;
+CPDFConversion::StartPDFToSearchablePdf("scan.pdf", "", "output.pdf", opt, nullptr);
 ```
 
-Supported OCR languages: Chinese (Simplified/Traditional), English, Korean, Japanese, Latin, Devanagari, Cyrillic, Arabic, Tamil, Telugu, Kannada, Thai, Greek, Eslav, Auto.
-
-### Image Conversion Options
+### PDF to JSON with Table Extraction
 
 ```cpp
 ConvertOptions opt;
-opt.image_type = ImageType::e_PNG;       // JPG, JPEG, JPEG2000, PNG, BMP, TIFF, TGA, GIF, WEBP
-opt.image_color_mode = ImageColorMode::e_Color;  // Color, Gray, Binary
-opt.image_scaling = 2.0;                 // Scale factor
-opt.image_path_enhance = true;           // Enhance path rendering
+opt.json_contain_table = true;
+CPDFConversion::StartPDFToJson("input.pdf", "", "output.json", opt, nullptr);
 ```
 
-### Excel Options
+### Custom AI Engine (SDK v1.1.0+)
 
 ```cpp
-ConvertOptions opt;
-opt.excel_all_content = true;
-opt.excel_worksheet_option = ExcelWorksheetOption::e_ForDocument;
-// Options: e_ForTable, e_ForPage, e_ForDocument
-```
+static bool MyOcrTrigger(const char *image_path) { /* your OCR */ return true; }
+static const char *MyOcrGetter() { return ""; }
+static bool MyLayoutTrigger(const char *image_path) { /* your layout */ return true; }
+static const char *MyLayoutGetter() { return ""; }
+static bool MyTableTrigger(const char *image_path) { /* your table */ return true; }
+static const char *MyTableGetter() { return ""; }
 
-### HTML Options
-
-```cpp
-ConvertOptions opt;
-opt.html_option = HtmlOption::e_MultiPageWithBookmark;
-// Options: e_SinglePage, e_SinglePageWithBookmark, e_MultiPage, e_MultiPageWithBookmark
-```
-
-### Progress & Cancellation Callbacks
-
-```cpp
-void Progress(int current, int total) {
-    std::cout << current << " / " << total << std::endl;
-}
-
-bool Cancel() {
-    return false; // return true to cancel
-}
-
-CConvertCallback callback = {};
-callback.progress = Progress;
-callback.cancel = Cancel;
-
-CPDFConversion::StartPDFToWord("input.pdf", "", "output.docx", opt, &callback);
-```
-
-### Custom AI Models (SDK v4.1.0+)
-
-```cpp
 CConvertCallback callback = {};
 callback.ocr = MyOcrTrigger;
 callback.get_ocr_result = MyOcrGetter;
@@ -231,40 +124,19 @@ callback.get_layout_result = MyLayoutGetter;
 callback.table = MyTableTrigger;
 callback.get_table_result = MyTableGetter;
 
+ConvertOptions opt;
+opt.enable_ocr = true;
+opt.enable_ai_layout = true;
 CPDFConversion::StartPDFToWord("input.pdf", "", "output.docx", opt, &callback);
 ```
 
-See the [Developer Guide](doc/developer_guide_c++.md) for JSON schema details on custom AI callbacks.
+## Documentation
 
-## API Reference
+- [Developer Guide](doc/developer_guide_c++.md)
+- [API Reference](doc/api_reference_cpp.html)
 
-| API | Description |
-|-----|-------------|
-| `CPDFConversion::StartPDFToWord` | Convert PDF to Word (.docx) |
-| `CPDFConversion::StartPDFToExcel` | Convert PDF to Excel (.xlsx) / CSV |
-| `CPDFConversion::StartPDFToPpt` | Convert PDF to PowerPoint (.pptx) |
-| `CPDFConversion::StartPDFToHtml` | Convert PDF to HTML (.html) |
-| `CPDFConversion::StartPDFToImage` | Convert PDF to Image |
-| `CPDFConversion::StartPDFToTxt` | Convert PDF to Plain Text (.txt) |
-| `CPDFConversion::StartPDFToRtf` | Convert PDF to RTF (.rtf) |
-| `CPDFConversion::StartPDFToJson` | Extract PDF to JSON (.json) |
-| `CPDFConversion::StartPDFToMarkdown` | Extract PDF to Markdown (.md) |
-| `CPDFConversion::StartPDFToSearchablePdf` | Convert PDF to Searchable PDF |
-| `CPDFConversion::StartPDFToOfd` | Convert PDF to OFD (.ofd) |
-| `LibraryManager::LicenseVerify` | Verify license key |
-| `LibraryManager::Initialize` | Initialize SDK resources |
-| `LibraryManager::Release` | Release all SDK resources |
-| `LibraryManager::SetDocumentAIModel` | Load DocumentAI model |
-| `LibraryManager::SetDocumentAIModelCount` | Set AI model instance count |
-| `LibraryManager::ReleaseDocumentAIModel` | Release AI model resources |
-| `LibraryManager::GetPageCount` | Get document page count |
-| `LibraryManager::GetVersion` | Get SDK version string |
-
-## License
-
-This is a commercial SDK. Contact [support@pdfsolid.com](mailto:support@pdfsolid.com) for a 30-day free trial or commercial license.
-
-## Support
+## Contact
 
 - Website: [https://www.pdfsolid.com](https://www.pdfsolid.com/)
-- Email: [support@pdfsolid.com](mailto:support@pdfsolid.com)
+- Sales: [sales@pdfsolid.com](mailto:sales@pdfsolid.com)
+- Support: [support@pdfsolid.com](mailto:support@pdfsolid.com)
