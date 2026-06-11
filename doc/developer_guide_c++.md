@@ -1,4 +1,4 @@
-# 1. Overview
+﻿# 1. Overview
 
 PDFSolid Conversion SDK is a high-performance library designed for extracting and transforming the data within your PDF files, such as text, images, tables, links, and annotations, into various file formats. The Conversion SDK retains the original document layout and the properties of the file data, helping you build a reliable document conversion workflow in C++ applications.
 
@@ -47,9 +47,9 @@ The PDFSolid Conversion SDK is designed to convert PDF files into many other for
 
 ## 1.3 License & Trial
 
-The PDFSolid Conversion SDK is a commercial SDK that requires a license to grant developers the right to develop and distribute their applications. In development mode, each license is only valid for one device ID. PDFSolid provides flexible licensing models. Please contact [our marketing team](mailto:support@pdfsolid.com) for more information. Even if you have a license, it is prohibited to distribute any documents, sample code, or source code of the PDFSolid Conversion SDK to any third parties.
+The PDFSolid Conversion SDK is a commercial SDK that requires a license to grant developers the right to develop and distribute their applications. In development mode, each license is only valid for one device ID. PDFSolid provides flexible licensing models. Please contact [our marketing team](mailto:sales@pdfsolid.com) for more information. Even if you have a license, it is prohibited to distribute any documents, sample code, or source code of the PDFSolid Conversion SDK to any third parties.
 
-If you do not have a license, please contact the PDFSolid Team at support@pdfsolid.com to obtain a trial license for PDFSolid Conversion SDK.
+If you do not have a license, please contact the PDFSolid Team at sales@pdfsolid.com to obtain a trial license for PDFSolid Conversion SDK.
 
 # 2. Get Started
 
@@ -63,19 +63,19 @@ PDFSolid provides two types of license key: 30-day free trial license and commer
 
 #### How to Get Free Trial License
 
-Contact our sales team at support@pdfsolid.com and we will send you a 30-day free trial license for PDFSolid Conversion SDK.
+Contact our sales team at sales@pdfsolid.com and we will send you a 30-day free trial license for PDFSolid Conversion SDK.
 
 #### How to Get Commercial License
 
 PDFSolid Conversion SDK is a commercial SDK that requires a license for application release. Any documents, sample code, or source code distribution from the released package of PDFSolid to any third party is prohibited.
 
-To get a commercial license for PDFSolid Conversion SDK, feel free to contact our sales team at support@pdfsolid.com.
+To get a commercial license for PDFSolid Conversion SDK, feel free to Contact our sales team at sales@pdfsolid.com.
 
 For the C++ Conversion SDK, the commercial license must be bound to your developer device ID (How to find the developer device ID), and each license is only valid for one device ID in development mode.
 
 ### 2.1.2 Download Conversion SDK
 
-Contact us at support@pdfsolid.com to obtain the PDFSolid C++ Conversion SDK.
+Contact us at sales@pdfsolid.com to obtain the PDFSolid C++ Conversion SDK.
 
 ### 2.1.3 System Requirements
 
@@ -87,7 +87,7 @@ Contact us at support@pdfsolid.com to obtain the PDFSolid C++ Conversion SDK.
 
 ## 2.2 SDK Package Structure
 
-You can contact us at support@pdfsolid.com to get the PDF format conversion SDK package. The PDFSolid Conversion C++ SDK contains the following files:
+You can contact us at sales@pdfsolid.com to get the PDF format conversion SDK package. The PDFSolid Conversion C++ SDK contains the following files:
 
 - ***"doc"*** - API reference and developer guide.
 - ***"include"*** - Header files for PDFSolid Conversion SDK C++ API.
@@ -241,9 +241,9 @@ LibraryManager::SetDocumentAIModelCount(1, 1);
 
 The first parameter indicates the number of Layout Analysis model instances, and the second parameter indicates the number of Table Recognition model instances.
 
-### Use Your Own AI Engine (SDK v4.1.0+)
+### Use Your Own AI Engine (SDK v1.1.0+)
 
-This option is available only in SDK v4.1.0 or later. If you prefer to run OCR, Layout Analysis, or Table Recognition with your own model or a third-party service instead of the bundled DocumentAI model, the SDK exposes callback hooks on `CConvertCallback` that let you supply the results as JSON. See [3.11 Use Custom AI Models via Callbacks](#311-use-custom-ai-models-via-callbacks) for details. When all capabilities you need are covered by your own callbacks, `SetDocumentAIModel` does not have to be called.
+This option is available only in SDK v1.1.0 or later. If you prefer to run OCR, Layout Analysis, or Table Recognition with your own model or a third-party service instead of the bundled DocumentAI model, the SDK exposes callback hooks on `CConvertCallback` that let you supply the results as JSON. See [3.11 Use Custom AI Models via Callbacks](#311-use-custom-ai-models-via-callbacks) for details. When all capabilities you need are covered by your own callbacks, `SetDocumentAIModel` does not have to be called.
 
 ## 3.3 Get Conversion Progress
 
@@ -522,7 +522,7 @@ CPDFConversion::StartPDFToWord("word.pdf", "password", "path/output.docx", opt);
 
 ### Overview
 
-Starting with SDK v4.1.0, PDFSolid Conversion SDK exposes a callback-based extension point that lets you plug in your own AI inference engine for OCR, Layout Analysis, and Table Recognition. Instead of relying on the built-in DocumentAI model loaded by `SetDocumentAIModel`, you can run inference with any model or service and return the result to the SDK as a JSON string.
+Starting with SDK v1.1.0, PDFSolid Conversion SDK exposes a callback-based extension point that lets you plug in your own AI inference engine for OCR, Layout Analysis, and Table Recognition. Instead of relying on the built-in DocumentAI model loaded by `SetDocumentAIModel`, you can run inference with any model or service and return the result to the SDK as a JSON string.
 
 When the relevant callback pair is registered on `CConvertCallback`, the SDK skips its built-in model invocation for that capability and consumes your JSON output instead. If a pair is left as `nullptr`, the SDK falls back to the built-in DocumentAI model when available.
 
@@ -1124,8 +1124,9 @@ Thanks for your interest in PDFSolid Conversion SDK, the easy-to-use and powerfu
 
 ### Contact Information
 
-- Home link: [https://www.pdfsolid.com](https://www.pdfsolid.com/)
-- Email: [support@pdfsolid.com](mailto:support@pdfsolid.com)
+- Website: [https://www.pdfsolid.com](https://www.pdfsolid.com/)
+- Sales: [sales@pdfsolid.com](mailto:sales@pdfsolid.com)
+- Support: [support@pdfsolid.com](mailto:support@pdfsolid.com)
 
 Thanks,
 
