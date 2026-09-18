@@ -1,4 +1,4 @@
-﻿var searchData=
+var searchData=
 [
-  ['licenseverify_0',['LicenseVerify',['../classpdfsolid_1_1common_1_1_library_manager.html#ac69db9a6c854c906c68cf5628d84233d',1,'pdfsolid::common::LibraryManager']]]
+  ['licenseverify_0',['LicenseVerify',['../classpdfsolid_1_1common_1_1_library_manager.html#a70bb50f71378773a414aeebebf0451d6',1,'pdfsolid::common::LibraryManager']]]
 ];

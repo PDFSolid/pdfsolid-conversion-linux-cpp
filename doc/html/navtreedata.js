@@ -1,4 +1,4 @@
-﻿/*
+/*
  @licstart  The following is the entire license notice for the JavaScript code in this file.
 
  The MIT License (MIT)
@@ -25,11 +25,7 @@
 var NAVTREE =
 [
   [ "PDFSolid C++ API", "index.html", [
-    [ "1. Overview", "md_build_api_reference_public_cpp_mainpage.html", [
-      [ "1.1 Why PDFSolid Conversion SDK", "md_build_api_reference_public_cpp_mainpage.html#autotoc_md1", null ],
-      [ "1.2 PDFSolid Conversion SDK", "md_build_api_reference_public_cpp_mainpage.html#autotoc_md2", null ],
-      [ "1.3 License & Trial", "md_build_api_reference_public_cpp_mainpage.html#autotoc_md3", null ]
-    ] ],
+    [ "PDFSolid Conversion documentation", "index.html", "index" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -61,7 +57,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structpdfsolid_1_1base_1_1_convert_options.html#a28640f1ba611b4e3a91e5391642a8ecf"
+"namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02a9b4f9bc38257217ed7eb13014628b1cb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

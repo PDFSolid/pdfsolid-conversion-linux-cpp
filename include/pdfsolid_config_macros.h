@@ -4,7 +4,11 @@
 #include <stdbool.h>
 
 #if defined(_WIN32)
+#if defined(COMPDF_LIB)
 #define PDFSOLID_DECL __declspec(dllexport)
+#else
+#define PDFSOLID_DECL __declspec(dllimport)
+#endif
 #else
 #define PDFSOLID_DECL __attribute__((visibility("default")))
 #endif  // _WIN32

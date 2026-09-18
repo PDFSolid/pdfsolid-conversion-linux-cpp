@@ -1,4 +1,20 @@
 var searchData=
 [
-  ['base_5ftype_2eh_0',['base_type.h',['../base__type_8h.html',1,'']]]
+  ['cancel_0',['cancel',['../struct_c_convert_callback.html#ac6f839275517a858414e726d726ea55b',1,'CConvertCallback']]],
+  ['ccancel_1',['CCancel',['../pdfsolid__config__macros_8h.html#a39be504cfea6361750df9b44136e9a4d',1,'pdfsolid_config_macros.h']]],
+  ['cconvertcallback_2',['CConvertCallback',['../struct_c_convert_callback.html',1,'CConvertCallback'],['../pdfsolid__config__macros_8h.html#a43d0b02fabb4d970b39c02a8fe07fdaf',1,'CConvertCallback():&#160;pdfsolid_config_macros.h']]],
+  ['cgetlayoutresultcallback_3',['CGetLayoutResultCallback',['../pdfsolid__config__macros_8h.html#a1c52bb366c1564d0d1eec8ccc540b654',1,'pdfsolid_config_macros.h']]],
+  ['cgetocrresultcallback_4',['CGetOCRResultCallback',['../pdfsolid__config__macros_8h.html#a3268c390dadffaf47d08df981774aad5',1,'pdfsolid_config_macros.h']]],
+  ['cgettableresultcallback_5',['CGetTableResultCallback',['../pdfsolid__config__macros_8h.html#af28af0ca81c5e57c34de6adfe96b7355',1,'pdfsolid_config_macros.h']]],
+  ['clayoutcallback_6',['CLayoutCallback',['../pdfsolid__config__macros_8h.html#a0469fc1b15dcd0ee127942537cc3ab32',1,'pdfsolid_config_macros.h']]],
+  ['cocrcallback_7',['COCRCallback',['../pdfsolid__config__macros_8h.html#aa41dd1b1ebfa8e62b2587b39926aa8d0',1,'pdfsolid_config_macros.h']]],
+  ['comhandle_8',['COMHANDLE',['../pdfsolid__config__macros_8h.html#ad35cee2a61326b0c2fedf9aa636b3d38',1,'pdfsolid_config_macros.h']]],
+  ['contain_5fannotation_9',['contain_annotation',['../structpdfsolid_1_1base_1_1_convert_options.html#a67f32382806c5ebcfeda9af4e1593eed',1,'pdfsolid::base::ConvertOptions']]],
+  ['contain_5fimage_10',['contain_image',['../structpdfsolid_1_1base_1_1_convert_options.html#a0eccc86662dab4cd15f097aa8029aeeb',1,'pdfsolid::base::ConvertOptions']]],
+  ['contain_5fpage_5fbackground_5fimage_11',['contain_page_background_image',['../structpdfsolid_1_1base_1_1_convert_options.html#a482729ad7a0f834e739a1ca2d8ea1a07',1,'pdfsolid::base::ConvertOptions']]],
+  ['convertblueerrorcode_12',['ConvertBlueErrorcode',['../namespacepdfsolid_1_1common.html#a5acedbcbdc8f929264d202cf064a02f9',1,'pdfsolid::common']]],
+  ['convertoptions_13',['ConvertOptions',['../structpdfsolid_1_1base_1_1_convert_options.html',1,'pdfsolid::base']]],
+  ['cpdfconversion_14',['CPDFConversion',['../classpdfsolid_1_1conversion_1_1_c_p_d_f_conversion.html',1,'pdfsolid::conversion']]],
+  ['cprogress_15',['CProgress',['../pdfsolid__config__macros_8h.html#a2d56dc84f2bb501afbc6a9e47701d2eb',1,'pdfsolid_config_macros.h']]],
+  ['ctablecallback_16',['CTableCallback',['../pdfsolid__config__macros_8h.html#afc08f8e24b34cbeedbe9a22835b21118',1,'pdfsolid_config_macros.h']]]
 ];

@@ -1,4 +1,4 @@
-﻿var searchData=
+var searchData=
 [
-  ['pagelayoutmode_0',['PageLayoutMode',['../namespacepdfsolid_1_1base.html#aa45c4b637b11782615e9560215850a87',1,'pdfsolid::base']]]
+  ['pagelayoutmode_0',['PageLayoutMode',['../namespacepdfsolid_1_1base.html#af40fbe6000f170d2f7556eda0d0867f8',1,'pdfsolid::base']]]
 ];

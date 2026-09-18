@@ -1,8 +1,10 @@
 #ifndef BASE_TYPE_H
 #define BASE_TYPE_H
 
+#include "pdfsolid_config_macros.h"
+
 namespace pdfsolid {
-namespace base   {
+namespace base {
 
 /// \brief OCR language.
 enum class OCRLanguage{
@@ -145,6 +147,11 @@ enum class ErrorCode
 
     /// The table data is invalid or null.
     e_ErrInvalidTable = 94,
+
+    /// The source document uses a feature this SDK cannot lay out yet, so no
+    /// output was produced. Distinct from e_ErrIO: nothing failed on the disk
+    /// or in the writer, the document itself is out of scope.
+    e_ErrUnsupportedFeature = 95,
 
     /// Unknown error
     e_ErrUnknown = 100
@@ -310,9 +317,15 @@ struct ConvertOptions
 
      /// Specify the OCR languages.
     OCRLanguage languages[32] = {};
+
+    /// Whether to classify and correct document orientation before OCR image recognition.
+    bool enable_document_orientation_classification = false;
+
+    /// Whether to apply DocumentAI dewarp before OCR image recognition.
+    bool enable_document_dewarp = false;
 };
 
-}
-}
+}  // namespace base
+}  // namespace pdfsolid
 
 #endif //BASE_TYPE_H

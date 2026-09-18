@@ -1,4 +1,4 @@
-﻿# 1. Overview
+# 1. Overview
 
 PDFSolid Conversion SDK is a high-performance library designed for extracting and transforming the data within your PDF files, such as text, images, tables, links, and annotations, into various file formats. The Conversion SDK retains the original document layout and the properties of the file data, helping you build a reliable document conversion workflow in C++ applications.
 
@@ -47,9 +47,9 @@ The PDFSolid Conversion SDK is designed to convert PDF files into many other for
 
 ## 1.3 License & Trial
 
-The PDFSolid Conversion SDK is a commercial SDK that requires a license to grant developers the right to develop and distribute their applications. In development mode, each license is only valid for one device ID. PDFSolid provides flexible licensing models. Please contact [our marketing team](mailto:sales@pdfsolid.com) for more information. Even if you have a license, it is prohibited to distribute any documents, sample code, or source code of the PDFSolid Conversion SDK to any third parties.
+The PDFSolid Conversion SDK is a commercial SDK that requires a license to grant developers the right to develop and distribute their applications. In development mode, each license is only valid for one device ID. PDFSolid provides flexible licensing models. Please contact [our marketing team](mailto:support@pdfsolid.com) for more information. Even if you have a license, it is prohibited to distribute any documents, sample code, or source code of the PDFSolid Conversion SDK to any third parties.
 
-If you do not have a license, please contact the PDFSolid Team at sales@pdfsolid.com to obtain a trial license for PDFSolid Conversion SDK.
+If you do not have a license, please contact the PDFSolid Team at support@pdfsolid.com to obtain a trial license for PDFSolid Conversion SDK.
 
 # 2. Get Started
 
@@ -63,19 +63,19 @@ PDFSolid provides two types of license key: 30-day free trial license and commer
 
 #### How to Get Free Trial License
 
-Contact our sales team at sales@pdfsolid.com and we will send you a 30-day free trial license for PDFSolid Conversion SDK.
+Contact our sales team at support@pdfsolid.com and we will send you a 30-day free trial license for PDFSolid Conversion SDK.
 
 #### How to Get Commercial License
 
 PDFSolid Conversion SDK is a commercial SDK that requires a license for application release. Any documents, sample code, or source code distribution from the released package of PDFSolid to any third party is prohibited.
 
-To get a commercial license for PDFSolid Conversion SDK, feel free to Contact our sales team at sales@pdfsolid.com.
+To get a commercial license for PDFSolid Conversion SDK, feel free to contact our sales team at support@pdfsolid.com.
 
 For the C++ Conversion SDK, the commercial license must be bound to your developer device ID (How to find the developer device ID), and each license is only valid for one device ID in development mode.
 
 ### 2.1.2 Download Conversion SDK
 
-Contact us at sales@pdfsolid.com to obtain the PDFSolid C++ Conversion SDK.
+Contact us at support@pdfsolid.com to obtain the PDFSolid C++ Conversion SDK.
 
 ### 2.1.3 System Requirements
 
@@ -87,7 +87,7 @@ Contact us at sales@pdfsolid.com to obtain the PDFSolid C++ Conversion SDK.
 
 ## 2.2 SDK Package Structure
 
-You can contact us at sales@pdfsolid.com to get the PDF format conversion SDK package. The PDFSolid Conversion C++ SDK contains the following files:
+You can contact us at support@pdfsolid.com to get the PDF format conversion SDK package. The PDFSolid Conversion C++ SDK contains the following files:
 
 - ***"doc"*** - API reference and developer guide.
 - ***"include"*** - Header files for PDFSolid Conversion SDK C++ API.
@@ -1124,9 +1124,8 @@ Thanks for your interest in PDFSolid Conversion SDK, the easy-to-use and powerfu
 
 ### Contact Information
 
-- Website: [https://www.pdfsolid.com](https://www.pdfsolid.com/)
-- Sales: [sales@pdfsolid.com](mailto:sales@pdfsolid.com)
-- Support: [support@pdfsolid.com](mailto:support@pdfsolid.com)
+- Home link: [https://www.pdfsolid.com](https://www.pdfsolid.com/)
+- Email: [support@pdfsolid.com](mailto:support@pdfsolid.com)
 
 Thanks,
 

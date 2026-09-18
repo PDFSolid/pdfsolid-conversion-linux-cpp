@@ -1,4 +1,4 @@
-﻿var searchData=
+var searchData=
 [
   ['cconvertcallback_0',['CConvertCallback',['../struct_c_convert_callback.html',1,'']]],
   ['convertoptions_1',['ConvertOptions',['../structpdfsolid_1_1base_1_1_convert_options.html',1,'pdfsolid::base']]],

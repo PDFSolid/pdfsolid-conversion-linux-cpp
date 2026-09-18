@@ -1,44 +1,71 @@
-PDFSolid Conversion SDK v1.1.0 Release Date: 28 May 2026
+PDFSolid Conversion SDK v1.2.0 Release Date: 14 September 2026
 =====================================================
 
 Enhanced Features
 
 Core:
-- Added support for online license validation using XML license configuration files.
-- Added external AI callback interfaces for OCR, layout analysis, and table recognition, enabling integration with custom AI models.
-- Added support for scanning system fonts and improved font style matching.
+- Added support for perpetual licenses with a version update scope: a license can now declare the highest SDK version it covers and the date after which updates are no longer included.
+- Added support for GIF images as conversion input.
+- Improved conversion speed for large and complex documents.
+- Reduced peak memory usage when converting image-heavy documents.
 
 PDF to Word:
-- Added support for vertical text layout in Word output.
-- Added support for merging repeated headers and footers, with improved dynamic footer page number handling.
-- Added support for improved export of short hanging-indent paragraphs.
-- Improved header/footer, paragraph, table, text box, image, and multi-column layout restoration.
+- Added support for converting PDF vector graphics into editable Word shapes, with fill and line styles preserved.
+- Improved editability: the output relies less on paragraph spacing for page layout and uses more natural line spacing, so the layout stays stable after editing.
+- Improved recognition of graphically drawn list bullets.
+- Added support for restoring fraction equations as Word equations.
 
-PDF to Image:
-- Added support for rendering form fields during image conversion.
+PDF to Searchable PDF:
+- Improved accuracy and performance of the searchable text layer.
+- Reduced output file size.
+- Reduced meaningless spaces in the searchable text layer, so complete English words can be searched.
 
 OCR and AI:
-- Added an independent configuration option for AI-based table recognition.
-- Improved OCR paragraph font sizing and character width estimation.
+- Added document orientation detection and skew correction.
+- Improved OCR paragraph font sizing and word-break accuracy.
+
+Table Recognition:
+- Improved structure recognition for ruled, sparsely ruled and borderless tables.
 
 Issues Addressed
 
 Core:
-- Improved conversion stability, memory usage, and multi-threaded resource handling.
-- Improved handling of generated spaces, CJK text spacing, document transformations, links, SVG resources, path merging, and large image processing.
+- Improved conversion stability and fixed crashes on documents with invalid text objects or circular bookmarks.
+- Improved consistency of font selection and color extraction across repeated conversions.
+- Improved handling of spaces, character mapping, overlapping text, page orientation and form fields.
 
 PDF to Word:
-- Improved list recognition accuracy and reduced false positives for ambiguous ordered and unordered list markers.
-- Fixed issues where regular text, paragraphs, or special reference markers could be incorrectly recognized as list items.
-- Improved DOCX layout fidelity for list numbering, line-number paragraphs, CJK fonts, paragraph spacing, line height, indentation, compact tables, and table cell padding.
-- Fixed layout issues involving floating images, inline images, rotated images, special page numbers, text boxes, constrained containers, and multi-line headings.
-- Improved visual line grouping, paragraph splitting, text scaling, and layout measurement accuracy.
+- Restored natural line spacing for regular paragraphs, using fixed line spacing only where required.
+- Improved multi-column layout, including column detection, column spacing and columns spanning sections.
+- Improved paragraph alignment, first line indent, hanging indent and right indent accuracy.
+- Improved list recognition and reduced false positives from hyphenated words, paired punctuation and tab-separated columns.
+- Improved list numbering, indentation, tab stops and nested list levels.
+- Improved table recognition, including missing headers, empty columns being split incorrectly, multi-level headers and incorrect cell merging.
+- Fixed loss of images, line segments, borders and vertically merged cell content in tables.
+- Improved table row height, column width, cell padding, cell background, cell content placement and last row pagination.
+- Fixed duplicated text boxes, clipped text in floating text boxes, squeezed rotated labels and list numbering restarting across text boxes.
+- Fixed black text being exported as red, and preserved text transparency.
+- Improved recognition of superscripts, subscripts, strikethrough, hyphenation, quotation marks and drop caps.
+- Improved character and word spacing accuracy, including justified text.
+- Improved image and graphic handling, including transparency, text wrapping and object order.
+- Improved header, footer, page background and page rotation handling.
 
 Fonts:
-- Improved font substitution accuracy for missing glyphs, weight and style matching, width variants, CJK language matching, Japanese font preference, and symbol font normalization.
+- Fixed one source font being replaced by several different fonts in the same document.
+- Improved simplified and traditional Chinese detection, Korean font matching, symbol font handling and font name decoding.
+- Improved cross-platform font measurement consistency.
+- Improved font scaling and character spacing, including narrow characters that were compressed until invisible.
+- Fixed missing characters for non-embedded fonts on Linux.
+
+PDF to Excel:
+- Fixed multi-line paragraphs being truncated and excessive blank space in cells.
+- Fixed cell alignment, indentation consistency and text region misjudgment.
+- Fixed Wingdings list icons, highlight backgrounds affecting adjacent cells and annotation image export.
+- Fixed conversion failures caused by control characters.
 
 PDF to Searchable PDF:
-- Fixed font selection issues in searchable PDF output and improved text layer font consistency.
+- Fixed text selection width and character positioning.
+- Fixed background residue and plain text layout.
 
-Table Recognition:
-- Improved table background extraction and table content alignment accuracy.
+PDF to HTML:
+- Fixed the outline table of contents not being generated.

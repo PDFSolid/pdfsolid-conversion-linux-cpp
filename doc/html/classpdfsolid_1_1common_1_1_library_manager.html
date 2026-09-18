@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
@@ -24,9 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="App.ico"/></td>
   <td id="projectalign">
-   <div id="projectname">PDFSolid C++ API<span id="projectnumber">&#160;4.1.0</span>
+   <div id="projectname">PDFSolid C++ API<span id="projectnumber">&#160;1.2.0</span>
    </div>
+   <div id="projectbrief">API Documentation</div>
   </td>
  </tr>
  </tbody>
@@ -96,61 +98,59 @@ $(document).ready(function(){initNavTree('classpdfsolid_1_1common_1_1_library_ma
 </div><!--header-->
 <div class="contents">
 
-<p>Manages SDK library lifecycle operations.  
+<p>Manages all operations related to the SDK library.  
  <a href="classpdfsolid_1_1common_1_1_library_manager.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="library__manager_8h_source.html">library_manager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac69db9a6c854c906c68cf5628d84233d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacepdfsolid_1_1base.html#a8c3483b456104e41c69f59c053b24886">base::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#ac69db9a6c854c906c68cf5628d84233d">LicenseVerify</a> (const char *license, const char *device_id, const char *app_id)</td></tr>
-<tr class="memdesc:ac69db9a6c854c906c68cf5628d84233d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the provided license key along with device ID and application ID.  <br /></td></tr>
-<tr class="separator:ac69db9a6c854c906c68cf5628d84233d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa76e564ec35cc1e29976c14764cda66f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#aa76e564ec35cc1e29976c14764cda66f">Initialize</a> (const char *resource_path)</td></tr>
-<tr class="memdesc:aa76e564ec35cc1e29976c14764cda66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SDK library with the given resource path as a C-string.  <br /></td></tr>
-<tr class="separator:aa76e564ec35cc1e29976c14764cda66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29c101e138d94f89f14a599af7bf725d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a29c101e138d94f89f14a599af7bf725d">Initialize</a> (const wchar_t *resource_path)</td></tr>
-<tr class="memdesc:a29c101e138d94f89f14a599af7bf725d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SDK library with the given resource path as a wide-character string.  <br /></td></tr>
-<tr class="separator:a29c101e138d94f89f14a599af7bf725d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a918b400e17d01763aeff949ea43088fc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a918b400e17d01763aeff949ea43088fc">Release</a> ()</td></tr>
-<tr class="memdesc:a918b400e17d01763aeff949ea43088fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all resources used by the library. Should be called when the SDK is no longer needed.  <br /></td></tr>
-<tr class="separator:a918b400e17d01763aeff949ea43088fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3e9766d7592b2b164c87fe3d05008ea"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#aa3e9766d7592b2b164c87fe3d05008ea">SetLogger</a> (bool enable_info, bool enable_warning)</td></tr>
-<tr class="memdesc:aa3e9766d7592b2b164c87fe3d05008ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables logging for info and warning messages.  <br /></td></tr>
-<tr class="separator:aa3e9766d7592b2b164c87fe3d05008ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf9fa5bbff68c5849ede50a6c14e8081"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#acf9fa5bbff68c5849ede50a6c14e8081">GetVersion</a> (char *version)</td></tr>
-<tr class="memdesc:acf9fa5bbff68c5849ede50a6c14e8081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the version of the SDK library.  <br /></td></tr>
-<tr class="separator:acf9fa5bbff68c5849ede50a6c14e8081"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef455ea4a6b37c7c91906dc9a58d23a1"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#aef455ea4a6b37c7c91906dc9a58d23a1">GetPageCount</a> (const char *file_path, const char *password)</td></tr>
-<tr class="memdesc:aef455ea4a6b37c7c91906dc9a58d23a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of pages in a document.  <br /></td></tr>
-<tr class="separator:aef455ea4a6b37c7c91906dc9a58d23a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a159e1238734696ae4bdbbdc3693e2e14"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a159e1238734696ae4bdbbdc3693e2e14">GetRemainingPageQuota</a> ()</td></tr>
-<tr class="memdesc:a159e1238734696ae4bdbbdc3693e2e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the remaining page quota.  <br /></td></tr>
-<tr class="separator:a159e1238734696ae4bdbbdc3693e2e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b240f4507aff1300fa21675a5db5a36"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a7b240f4507aff1300fa21675a5db5a36">GetPageCount</a> (const wchar_t *file_path, const wchar_t *password)</td></tr>
-<tr class="memdesc:a7b240f4507aff1300fa21675a5db5a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of pages in a document.  <br /></td></tr>
-<tr class="separator:a7b240f4507aff1300fa21675a5db5a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abed87fd5f6a9b3d6e08ba5aa9f3cbfda"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacepdfsolid_1_1base.html#a8c3483b456104e41c69f59c053b24886">base::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#abed87fd5f6a9b3d6e08ba5aa9f3cbfda">SetDocumentAIModel</a> (const char *file_path, int gpu_id=-1)</td></tr>
-<tr class="memdesc:abed87fd5f6a9b3d6e08ba5aa9f3cbfda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the DocumentAI model used by OCR, layout analysis, and table recognition.  <br /></td></tr>
-<tr class="separator:abed87fd5f6a9b3d6e08ba5aa9f3cbfda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ad043cc045a0aa1d67b12c25d86c6a3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a0ad043cc045a0aa1d67b12c25d86c6a3">SetDocumentAIModelCount</a> (int layout_model_count, int table_model_count)</td></tr>
-<tr class="memdesc:a0ad043cc045a0aa1d67b12c25d86c6a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of DocumentAI model instances for layout analysis and table recognition.  <br /></td></tr>
-<tr class="separator:a0ad043cc045a0aa1d67b12c25d86c6a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd3951dfc6eba6e20b520b53cc986331"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#abd3951dfc6eba6e20b520b53cc986331">ReleaseDocumentAIModel</a> ()</td></tr>
-<tr class="memdesc:abd3951dfc6eba6e20b520b53cc986331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases memory used by the DocumentAI model.  <br /></td></tr>
-<tr class="separator:abd3951dfc6eba6e20b520b53cc986331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaad339bd9650b537ea1a1d43106b81c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacepdfsolid_1_1base.html#a8c3483b456104e41c69f59c053b24886">base::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#acaad339bd9650b537ea1a1d43106b81c">SetDocumentAIModel</a> (const wchar_t *file_path, int gpu_id=-1)</td></tr>
-<tr class="memdesc:acaad339bd9650b537ea1a1d43106b81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the DocumentAI model from a wide-character file path.  <br /></td></tr>
-<tr class="separator:acaad339bd9650b537ea1a1d43106b81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70bb50f71378773a414aeebebf0451d6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02">base::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a70bb50f71378773a414aeebebf0451d6">LicenseVerify</a> (const char *license, const char *device_id, const char *app_id)</td></tr>
+<tr class="memdesc:a70bb50f71378773a414aeebebf0451d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the provided license key along with device ID and application ID.  <br /></td></tr>
+<tr class="separator:a70bb50f71378773a414aeebebf0451d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f6cf20d8ade4c9adb489854cef97a2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#ac9f6cf20d8ade4c9adb489854cef97a2">Initialize</a> (const char *resource_path)</td></tr>
+<tr class="memdesc:ac9f6cf20d8ade4c9adb489854cef97a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SDK library with the given resource path as a C-string.  <br /></td></tr>
+<tr class="separator:ac9f6cf20d8ade4c9adb489854cef97a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa77111de2640ce52a06517c86c0ad6e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#aaa77111de2640ce52a06517c86c0ad6e">Initialize</a> (const wchar_t *resource_path)</td></tr>
+<tr class="memdesc:aaa77111de2640ce52a06517c86c0ad6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SDK library with the given resource path as a wide-character string.  <br /></td></tr>
+<tr class="separator:aaa77111de2640ce52a06517c86c0ad6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2abf9adac9466412f53a13e40f0fe30"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#ae2abf9adac9466412f53a13e40f0fe30">Release</a> ()</td></tr>
+<tr class="memdesc:ae2abf9adac9466412f53a13e40f0fe30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all resources used by the library. Should be called when the SDK is no longer needed.  <br /></td></tr>
+<tr class="separator:ae2abf9adac9466412f53a13e40f0fe30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeff4dbeca8e4b676ac26c48cc56b5dd7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#aeff4dbeca8e4b676ac26c48cc56b5dd7">SetLogger</a> (bool enable_info, bool enable_warning)</td></tr>
+<tr class="memdesc:aeff4dbeca8e4b676ac26c48cc56b5dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables logging for info and warning messages.  <br /></td></tr>
+<tr class="separator:aeff4dbeca8e4b676ac26c48cc56b5dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab74e489c3d5ecd859fd292fc701c163b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#ab74e489c3d5ecd859fd292fc701c163b">GetVersion</a> (char *version)</td></tr>
+<tr class="memdesc:ab74e489c3d5ecd859fd292fc701c163b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the version of the SDK library.  <br /></td></tr>
+<tr class="separator:ab74e489c3d5ecd859fd292fc701c163b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf1e7adaa5c2267c3c206ed168b9e62c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#abf1e7adaa5c2267c3c206ed168b9e62c">GetPageCount</a> (const char *file_path, const char *password)</td></tr>
+<tr class="memdesc:abf1e7adaa5c2267c3c206ed168b9e62c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of pages in a document.  <br /></td></tr>
+<tr class="separator:abf1e7adaa5c2267c3c206ed168b9e62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a887772c4294924bd81fdc10d03dcbb1e"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a887772c4294924bd81fdc10d03dcbb1e">GetRemainingPageQuota</a> ()</td></tr>
+<tr class="memdesc:a887772c4294924bd81fdc10d03dcbb1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the remaining page quota.  <br /></td></tr>
+<tr class="separator:a887772c4294924bd81fdc10d03dcbb1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f1d95dd03410c0a206718175e3d6c80"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a9f1d95dd03410c0a206718175e3d6c80">GetPageCount</a> (const wchar_t *file_path, const wchar_t *password)</td></tr>
+<tr class="memdesc:a9f1d95dd03410c0a206718175e3d6c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of pages in a document.  <br /></td></tr>
+<tr class="separator:a9f1d95dd03410c0a206718175e3d6c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7862e4a867d812deb9a75c88b0779187"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02">base::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a7862e4a867d812deb9a75c88b0779187">SetDocumentAIModel</a> (const char *file_path, int gpu_id=-1)</td></tr>
+<tr class="memdesc:a7862e4a867d812deb9a75c88b0779187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Document AI model based on the provided file path.  <br /></td></tr>
+<tr class="separator:a7862e4a867d812deb9a75c88b0779187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab98da4b025b402ef0b76ff055be76c1b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#ab98da4b025b402ef0b76ff055be76c1b">SetDocumentAIModelCount</a> (int layout_model_count, int table_model_count)</td></tr>
+<tr class="memdesc:ab98da4b025b402ef0b76ff055be76c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of AI models for layout analysis and table recognition.  <br /></td></tr>
+<tr class="separator:ab98da4b025b402ef0b76ff055be76c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a950c2b25c954932d7856f2517d301816"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a950c2b25c954932d7856f2517d301816">ReleaseDocumentAIModel</a> ()</td></tr>
+<tr class="memdesc:a950c2b25c954932d7856f2517d301816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the memory used by the AI model. If you want to use the AI function again after this call, you need to call <a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a7862e4a867d812deb9a75c88b0779187">LibraryManager::SetDocumentAIModel</a> again.  <br /></td></tr>
+<tr class="separator:a950c2b25c954932d7856f2517d301816"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15763a10ba787808b0f5743a421b1785"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02">base::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a15763a10ba787808b0f5743a421b1785">SetDocumentAIModel</a> (const wchar_t *file_path, int gpu_id=-1)</td></tr>
+<tr class="memdesc:a15763a10ba787808b0f5743a421b1785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Document AI model based on the provided file path as a wide-character string.  <br /></td></tr>
+<tr class="separator:a15763a10ba787808b0f5743a421b1785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Manages SDK library lifecycle operations. </p>
-<p>The <a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html" title="Manages SDK library lifecycle operations.">LibraryManager</a> class provides SDK initialization, license verification, logging configuration, version retrieval, and document page count utilities. </p>
-
-<p class="definition">Definition at line <a class="el" href="library__manager_8h_source.html#l00020">20</a> of file <a class="el" href="library__manager_8h_source.html">library_manager.h</a>.</p>
+<div class="textblock"><p>Manages all operations related to the SDK library. </p>
+<p>The <code><a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html" title="Manages all operations related to the SDK library.">LibraryManager</a></code> class serves as a central hub for managing the lifecycle of an SDK library. It provides functionalities such as initializing the library with specified resources, verifying licenses, installing fonts, setting up logging and progress callbacks, retrieving version information, and counting pages in documents. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aef455ea4a6b37c7c91906dc9a58d23a1" name="aef455ea4a6b37c7c91906dc9a58d23a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef455ea4a6b37c7c91906dc9a58d23a1">&#9670;&#160;</a></span>GetPageCount() <span class="overload">[1/2]</span></h2>
+<a id="abf1e7adaa5c2267c3c206ed168b9e62c" name="abf1e7adaa5c2267c3c206ed168b9e62c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf1e7adaa5c2267c3c206ed168b9e62c">&#9670;&#160;</a></span>GetPageCount() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +187,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">file_path</td><td>Path to the document file. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">password</td><td>Password for opening the document if required. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">password</td><td>Password for opening the document (if required). </td></tr>
   </table>
   </dd>
 </dl>
@@ -195,8 +195,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7b240f4507aff1300fa21675a5db5a36" name="a7b240f4507aff1300fa21675a5db5a36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b240f4507aff1300fa21675a5db5a36">&#9670;&#160;</a></span>GetPageCount() <span class="overload">[2/2]</span></h2>
+<a id="a9f1d95dd03410c0a206718175e3d6c80" name="a9f1d95dd03410c0a206718175e3d6c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f1d95dd03410c0a206718175e3d6c80">&#9670;&#160;</a></span>GetPageCount() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,7 +233,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">file_path</td><td>Path to the document file as a wide-character string. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">password</td><td>Password for opening the document if required. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">password</td><td>Password for opening the document (if required) as a wide-character string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -241,8 +241,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a159e1238734696ae4bdbbdc3693e2e14" name="a159e1238734696ae4bdbbdc3693e2e14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a159e1238734696ae4bdbbdc3693e2e14">&#9670;&#160;</a></span>GetRemainingPageQuota()</h2>
+<a id="a887772c4294924bd81fdc10d03dcbb1e" name="a887772c4294924bd81fdc10d03dcbb1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a887772c4294924bd81fdc10d03dcbb1e">&#9670;&#160;</a></span>GetRemainingPageQuota()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,8 +269,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="acf9fa5bbff68c5849ede50a6c14e8081" name="acf9fa5bbff68c5849ede50a6c14e8081"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf9fa5bbff68c5849ede50a6c14e8081">&#9670;&#160;</a></span>GetVersion()</h2>
+<a id="ab74e489c3d5ecd859fd292fc701c163b" name="ab74e489c3d5ecd859fd292fc701c163b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab74e489c3d5ecd859fd292fc701c163b">&#9670;&#160;</a></span>GetVersion()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,8 +303,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa76e564ec35cc1e29976c14764cda66f" name="aa76e564ec35cc1e29976c14764cda66f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa76e564ec35cc1e29976c14764cda66f">&#9670;&#160;</a></span>Initialize() <span class="overload">[1/2]</span></h2>
+<a id="ac9f6cf20d8ade4c9adb489854cef97a2" name="ac9f6cf20d8ade4c9adb489854cef97a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f6cf20d8ade4c9adb489854cef97a2">&#9670;&#160;</a></span>Initialize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -337,8 +337,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a29c101e138d94f89f14a599af7bf725d" name="a29c101e138d94f89f14a599af7bf725d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29c101e138d94f89f14a599af7bf725d">&#9670;&#160;</a></span>Initialize() <span class="overload">[2/2]</span></h2>
+<a id="aaa77111de2640ce52a06517c86c0ad6e" name="aaa77111de2640ce52a06517c86c0ad6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa77111de2640ce52a06517c86c0ad6e">&#9670;&#160;</a></span>Initialize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,8 +371,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac69db9a6c854c906c68cf5628d84233d" name="ac69db9a6c854c906c68cf5628d84233d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac69db9a6c854c906c68cf5628d84233d">&#9670;&#160;</a></span>LicenseVerify()</h2>
+<a id="a70bb50f71378773a414aeebebf0451d6" name="a70bb50f71378773a414aeebebf0451d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70bb50f71378773a414aeebebf0451d6">&#9670;&#160;</a></span>LicenseVerify()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,7 +381,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacepdfsolid_1_1base.html#a8c3483b456104e41c69f59c053b24886">base::ErrorCode</a> pdfsolid::common::LibraryManager::LicenseVerify </td>
+          <td class="memname">static <a class="el" href="namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02">base::ErrorCode</a> pdfsolid::common::LibraryManager::LicenseVerify </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>license</em>, </td>
@@ -420,12 +420,12 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacepdfsolid_1_1base.html#a8c3483b456104e41c69f59c053b24886">base::ErrorCode</a> indicating the success or failure of the verification process. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02">base::ErrorCode</a> indicating the success or failure of the verification process. </dd></dl>
 
 </div>
 </div>
-<a id="a918b400e17d01763aeff949ea43088fc" name="a918b400e17d01763aeff949ea43088fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a918b400e17d01763aeff949ea43088fc">&#9670;&#160;</a></span>Release()</h2>
+<a id="ae2abf9adac9466412f53a13e40f0fe30" name="ae2abf9adac9466412f53a13e40f0fe30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2abf9adac9466412f53a13e40f0fe30">&#9670;&#160;</a></span>Release()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -451,8 +451,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abd3951dfc6eba6e20b520b53cc986331" name="abd3951dfc6eba6e20b520b53cc986331"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd3951dfc6eba6e20b520b53cc986331">&#9670;&#160;</a></span>ReleaseDocumentAIModel()</h2>
+<a id="a950c2b25c954932d7856f2517d301816" name="a950c2b25c954932d7856f2517d301816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a950c2b25c954932d7856f2517d301816">&#9670;&#160;</a></span>ReleaseDocumentAIModel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -474,13 +474,12 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Releases memory used by the DocumentAI model. </p>
-<p>Call <a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#abed87fd5f6a9b3d6e08ba5aa9f3cbfda">LibraryManager::SetDocumentAIModel</a> again before using AI conversion features after this call. </p>
+<p>Releases the memory used by the AI model. If you want to use the AI function again after this call, you need to call <a class="el" href="classpdfsolid_1_1common_1_1_library_manager.html#a7862e4a867d812deb9a75c88b0779187">LibraryManager::SetDocumentAIModel</a> again. </p>
 
 </div>
 </div>
-<a id="abed87fd5f6a9b3d6e08ba5aa9f3cbfda" name="abed87fd5f6a9b3d6e08ba5aa9f3cbfda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abed87fd5f6a9b3d6e08ba5aa9f3cbfda">&#9670;&#160;</a></span>SetDocumentAIModel() <span class="overload">[1/2]</span></h2>
+<a id="a7862e4a867d812deb9a75c88b0779187" name="a7862e4a867d812deb9a75c88b0779187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7862e4a867d812deb9a75c88b0779187">&#9670;&#160;</a></span>SetDocumentAIModel() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -489,7 +488,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacepdfsolid_1_1base.html#a8c3483b456104e41c69f59c053b24886">base::ErrorCode</a> pdfsolid::common::LibraryManager::SetDocumentAIModel </td>
+          <td class="memname">static <a class="el" href="namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02">base::ErrorCode</a> pdfsolid::common::LibraryManager::SetDocumentAIModel </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>file_path</em>, </td>
@@ -513,20 +512,20 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the DocumentAI model used by OCR, layout analysis, and table recognition. </p>
+<p>Sets the Document AI model based on the provided file path. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">file_path</td><td>Path to the DocumentAI model file. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">gpu_id</td><td>GPU device index for the AI model. Use -1 to disable GPU acceleration. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">file_path</td><td>Path to the Document AI model file. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gpu_id</td><td>Which GPU to use for the AI model. -1 means disable GPU. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacepdfsolid_1_1base.html#a8c3483b456104e41c69f59c053b24886">base::ErrorCode</a> indicating the success or failure of setting the model. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02">base::ErrorCode</a> indicating the success or failure of setting the model. </dd></dl>
 
 </div>
 </div>
-<a id="acaad339bd9650b537ea1a1d43106b81c" name="acaad339bd9650b537ea1a1d43106b81c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acaad339bd9650b537ea1a1d43106b81c">&#9670;&#160;</a></span>SetDocumentAIModel() <span class="overload">[2/2]</span></h2>
+<a id="a15763a10ba787808b0f5743a421b1785" name="a15763a10ba787808b0f5743a421b1785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15763a10ba787808b0f5743a421b1785">&#9670;&#160;</a></span>SetDocumentAIModel() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -535,7 +534,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacepdfsolid_1_1base.html#a8c3483b456104e41c69f59c053b24886">base::ErrorCode</a> pdfsolid::common::LibraryManager::SetDocumentAIModel </td>
+          <td class="memname">static <a class="el" href="namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02">base::ErrorCode</a> pdfsolid::common::LibraryManager::SetDocumentAIModel </td>
           <td>(</td>
           <td class="paramtype">const wchar_t *&#160;</td>
           <td class="paramname"><em>file_path</em>, </td>
@@ -559,20 +558,20 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the DocumentAI model from a wide-character file path. </p>
+<p>Sets the Document AI model based on the provided file path as a wide-character string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">file_path</td><td>Path to the DocumentAI model file. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">gpu_id</td><td>GPU device index for the AI model. Use -1 to disable GPU acceleration. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">file_path</td><td>Path to the Document AI model file as a wide-character string. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gpu_id</td><td>Which GPU to use for the AI model. -1 means disable GPU. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacepdfsolid_1_1base.html#a8c3483b456104e41c69f59c053b24886">base::ErrorCode</a> indicating the success or failure of setting the model. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacepdfsolid_1_1base.html#a6930fae65c1bfea0c1234c162ab80c02">base::ErrorCode</a> indicating the success or failure of setting the model. </dd></dl>
 
 </div>
 </div>
-<a id="a0ad043cc045a0aa1d67b12c25d86c6a3" name="a0ad043cc045a0aa1d67b12c25d86c6a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ad043cc045a0aa1d67b12c25d86c6a3">&#9670;&#160;</a></span>SetDocumentAIModelCount()</h2>
+<a id="ab98da4b025b402ef0b76ff055be76c1b" name="ab98da4b025b402ef0b76ff055be76c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab98da4b025b402ef0b76ff055be76c1b">&#9670;&#160;</a></span>SetDocumentAIModelCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -605,19 +604,19 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the number of DocumentAI model instances for layout analysis and table recognition. </p>
+<p>Sets the number of AI models for layout analysis and table recognition. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">layout_model_count</td><td>Number of layout analysis model instances. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">table_model_count</td><td>Number of table recognition model instances. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">layout_model_count</td><td>Number of layout analysis models to be used. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">table_model_count</td><td>Number of table recognition models to be used. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="aa3e9766d7592b2b164c87fe3d05008ea" name="aa3e9766d7592b2b164c87fe3d05008ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3e9766d7592b2b164c87fe3d05008ea">&#9670;&#160;</a></span>SetLogger()</h2>
+<a id="aeff4dbeca8e4b676ac26c48cc56b5dd7" name="aeff4dbeca8e4b676ac26c48cc56b5dd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeff4dbeca8e4b676ac26c48cc56b5dd7">&#9670;&#160;</a></span>SetLogger()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -662,7 +661,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="library__manager_8h_source.html">library_manager.h</a></li>
+<li>D:/packages/conversion/cpp/PDFSolid_Conversion_windows_cpp_1_2_0/include/<a class="el" href="library__manager_8h_source.html">library_manager.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

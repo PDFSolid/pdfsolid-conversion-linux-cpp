@@ -7,7 +7,7 @@
 #include <cstdint>
 
 namespace pdfsolid {
-namespace common    {
+namespace common {
 
 /// Brief Converts blue license error code to SDK ErrorCode.
 base::ErrorCode ConvertBlueErrorcode(int error_code);
@@ -101,7 +101,7 @@ private:
     LibraryManager(const LibraryManager&) = default;
 };
 
-}
-}
+}  // namespace common
+}  // namespace pdfsolid
 
 #endif //LIBRARY_MANAGER_H

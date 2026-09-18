@@ -4,7 +4,7 @@
 #include "library_manager.h"
 
 namespace pdfsolid {
-namespace conversion{
+namespace conversion {
 
 /// \class CPDFConversion
 /// \brief Provides functionalities to convert PDF files into various formats such as Word, Excel, PPT, HTML, etc.
@@ -29,6 +29,23 @@ public:
     /// \param[in] callback Optional callback for tracking conversion progress and controlling cancellation.
     /// \return \link base::ErrorCode \endlink indicating the success or failure of the operation.
     static base::ErrorCode StartPDFToWord(const wchar_t* file_path, const wchar_t* password, const wchar_t* output_path, const base::ConvertOptions& options, CConvertCallback* callback = nullptr);
+
+#ifdef ENABLE_WORD2PDF
+    /// \brief Starts the conversion of a Word document to a PDF file.
+    ///
+    /// \param[in] file_path The input Word document path.
+    /// \param[in] output_path The output PDF path.
+    /// \param[in] callback Optional callback for tracking conversion progress and controlling cancellation.
+    /// \return \link base::ErrorCode \endlink indicating the success or failure of the operation.
+    static base::ErrorCode StartWordToPdf(const char* file_path, const char* output_path, CConvertCallback* callback = nullptr);
+    /// \brief Starts the conversion of a Word document to a PDF file using wide-character strings.
+    ///
+    /// \param[in] file_path The input Word document path as a wide-character string.
+    /// \param[in] output_path The output PDF path as a wide-character string.
+    /// \param[in] callback Optional callback for tracking conversion progress and controlling cancellation.
+    /// \return \link base::ErrorCode \endlink indicating the success or failure of the operation.
+    static base::ErrorCode StartWordToPdf(const wchar_t* file_path, const wchar_t* output_path, CConvertCallback* callback = nullptr);
+#endif
 
      /// \brief Starts the conversion of a PDF file to an Excel document.
     ///
@@ -221,7 +238,7 @@ public:
     static base::ErrorCode StartPDFToOfd(const wchar_t* file_path, const wchar_t* password, const wchar_t* output_path, const base::ConvertOptions& options, CConvertCallback* callback = nullptr);
 };
 
-}
-}
+}  // namespace conversion
+}  // namespace pdfsolid
 
 #endif //PDFSOLID_CONVERSION_H
