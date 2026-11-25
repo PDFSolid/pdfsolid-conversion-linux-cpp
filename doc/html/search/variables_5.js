@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['handle_0',['handle',['../struct_c_convert_callback.html#acdfe5a2b87fdbc6c3afc6a6c3b1895bc',1,'CConvertCallback']]],
-  ['html_5foption_1',['html_option',['../structpdfsolid_1_1base_1_1_convert_options.html#a0f3dbe273cee61b3141c8e3dbd7f76b7',1,'pdfsolid::base::ConvertOptions']]]
+  ['handle_251',['handle',['../structCConvertCallback.html#acdfe5a2b87fdbc6c3afc6a6c3b1895bc',1,'CConvertCallback']]],
+  ['html_5foption_252',['html_option',['../structpdfsolid_1_1base_1_1ConvertOptions.html#a0f3dbe273cee61b3141c8e3dbd7f76b7',1,'pdfsolid::base::ConvertOptions']]]
 ];

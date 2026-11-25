@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pagelayoutmode_0',['PageLayoutMode',['../namespacepdfsolid_1_1base.html#af40fbe6000f170d2f7556eda0d0867f8',1,'pdfsolid::base']]]
+  ['ocrlanguage_285',['OCRLanguage',['../namespacepdfsolid_1_1base.html#a480aae4d250d7d0b059efe4403fa9502',1,'pdfsolid::base']]],
+  ['ocroption_286',['OCROption',['../namespacepdfsolid_1_1base.html#af5456cc574afe334618994229a6ab87a',1,'pdfsolid::base']]]
 ];

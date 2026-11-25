@@ -1,0 +1,134 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Word to PDF | PDFSolid Conversion SDK 1.3.0 — c++</title><style>body{max-width:60rem;margin:2rem auto;padding:0 1rem;font:16px/1.5 system-ui}pre{overflow:auto;background:#f4f5f7;padding:.75rem}td,th{border:1px solid #bbb;padding:.4rem}table{border-collapse:collapse}</style></head><body><nav><a href="index.html">API reference index</a></nav><h1>Word to PDF</h1><p>PDFSolid Conversion SDK 1.3.0 · Linux x86_64</p><h3><strong>Overview</strong></h3>
+<p>PDFSolid Conversion SDK supports converting Word documents to PDF files. During conversion you can choose to generate PDF bookmarks, output only specific pages, and obtain diagnostic information about features that may affect fidelity. This function is provided by <code>CPDFConversion::StartWordToPdf</code>. Its options are set through <code>ConvertOptions</code>, the same structure used for PDF conversion; only <code>word_pdf_bookmark_mode</code> and <code>page_ranges</code> take effect for Word to PDF, and the other members are ignored.</p>
+<p><code>StartWordToPdf</code> provides the following overloads (each exists in a <code>const char*</code> path version and a <code>const wchar_t*</code> path version):</p>
+<pre><code class="language-c++">// Use the default options.
+static ErrorCode StartWordToPdf(const char* file_path, const char* output_path,
+                                CConvertCallback* callback = nullptr, char* diagnostics = nullptr);
+
+// Specify the options; only the bookmark mode and page range take effect.
+static ErrorCode StartWordToPdf(const char* file_path, const char* output_path,
+                                const ConvertOptions&amp; options,
+                                CConvertCallback* callback = nullptr, char* diagnostics = nullptr);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_path</code></td>
+<td>Path of the input Word document</td>
+</tr>
+<tr>
+<td><code>output_path</code></td>
+<td>Path of the output PDF</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>Conversion options; Word to PDF uses only <code>word_pdf_bookmark_mode</code> and <code>page_ranges</code>, see below</td>
+</tr>
+<tr>
+<td><code>callback</code></td>
+<td>Optional; used to get conversion progress and cancel the conversion, see <a href="../developer_guide_c++.md#34-get-conversion-progress">3.4 Get Conversion Progress</a> and <a href="../developer_guide_c++.md#35-cancel-conversion-task">3.5 Cancel Conversion Task</a></td>
+</tr>
+<tr>
+<td><code>diagnostics</code></td>
+<td>Optional caller-allocated buffer that receives diagnostic information; pass <code>nullptr</code> if you do not need it</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Conversion Options</strong></h3>
+<p>Word to PDF uses only the following members of <code>ConvertOptions</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>word_pdf_bookmark_mode</code></td>
+<td><code>WordPdfBookmarkMode</code></td>
+<td><code>e_None</code></td>
+<td>How PDF bookmarks (the outline shown in a reader's navigation panel) are generated</td>
+</tr>
+<tr>
+<td><code>page_ranges</code></td>
+<td><code>char[256]</code></td>
+<td>empty</td>
+<td>Pages to output, e.g. <code>&quot;1-3,5,7-9&quot;</code>; empty outputs every page</td>
+</tr>
+</tbody>
+</table>
+<p>Values of <code>WordPdfBookmarkMode</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>e_None</code></td>
+<td>Do not generate bookmarks</td>
+</tr>
+<tr>
+<td><code>e_Headings</code></td>
+<td>One bookmark per heading (a paragraph with an outline level), nested by level</td>
+</tr>
+<tr>
+<td><code>e_WordBookmarks</code></td>
+<td>One bookmark per Word bookmark, named after it</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Diagnostics</strong></h3>
+<ul>
+<li>The <code>diagnostics</code> buffer must be 8192 bytes in size. The SDK writes UTF-8 diagnostic text into it and neither allocates nor frees the buffer. (The macro <code>CPDF_WORD_TO_PDF_DIAGNOSTICS_SIZE</code> in the C header <code>pdfsolid_conversion_c.h</code> denotes this size; the C++ headers do not contain it, so define your own constant.)</li>
+<li>When the document contains a feature that may affect fidelity, <code>e_ErrUnsupportedFeature</code> (95) is returned. The PDF is usually still produced in this case: the first line of the diagnostic text, <code>output=produced</code>, means the PDF was produced, and <code>output=not_produced</code> means no complete PDF was written.</li>
+<li>Each following line is one &quot;feature ID:reason&quot; entry, for example <code>ruby:unsupported ruby layout</code>. The same feature is reported only once per conversion.</li>
+<li>If the conversion itself fails, the real error code is returned and takes precedence over 95.</li>
+<li>If the buffer cannot hold the complete diagnostics, <code>e_ErrOutOfMemory</code> is returned; the text is never truncated.</li>
+</ul>
+<h3><strong>Sample</strong></h3>
+<pre><code class="language-c++">#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &quot;pdfsolid_conversion.h&quot;
+
+using namespace pdfsolid::base;
+using namespace pdfsolid::common;
+using namespace pdfsolid::conversion;
+
+// Default options.
+ErrorCode code = CPDFConversion::StartWordToPdf(&quot;input.docx&quot;, &quot;path/output.pdf&quot;);
+
+// Generate bookmarks from headings, output pages 1-3, 5, and 7-9, and get diagnostics.
+const size_t kDiagnosticsSize = 8192;
+char diagnostics[kDiagnosticsSize] = {0};
+
+ConvertOptions opt;
+opt.word_pdf_bookmark_mode = WordPdfBookmarkMode::e_Headings;
+std::snprintf(opt.page_ranges, sizeof(opt.page_ranges), &quot;%s&quot;, &quot;1-3,5,7-9&quot;);
+
+code = CPDFConversion::StartWordToPdf(&quot;input.docx&quot;, &quot;path/output.pdf&quot;, opt, nullptr, diagnostics);
+if (code == ErrorCode::e_ErrUnsupportedFeature) {
+    // The document contains features that may affect fidelity. The PDF is usually still produced;
+    // check output=produced / output=not_produced on the first line of the diagnostic text.
+    std::cout &lt;&lt; diagnostics &lt;&lt; std::endl;
+} else if (code != ErrorCode::e_ErrSuccess) {
+    // The conversion failed.
+}
+</code></pre>
+<h3>Run the packaged example</h3>
+<p>From the Linux package root, run:</p>
+<pre><code class="language-sh">bash samples/demo/RunDemo.sh --office
+</code></pre>
+<p>The demo reads <code>resource/license/license.xml</code> and <code>samples/input_files/word.docx</code>. In <code>samples/output_files/</code>, <code>word_to_pdf.pdf</code> uses the defaults (all pages, no bookmarks); <code>word_to_pdf_bookmarks.pdf</code> selects pages <code>1-2</code> and creates bookmarks from headings.</p>
+</body></html>

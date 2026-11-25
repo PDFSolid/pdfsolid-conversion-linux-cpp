@@ -6,6 +6,17 @@
 namespace pdfsolid {
 namespace base {
 
+/// \brief Type of the currently verified license.
+enum class LicenseType
+{
+    /// No license has been verified, or the license type is unavailable.
+    e_Unknown = 0,
+    /// Trial license.
+    e_Trial = 1,
+    /// Formal license.
+    e_Formal = 2,
+};
+
 /// \brief OCR language.
 enum class OCRLanguage{
     /// Unknown language.
@@ -148,13 +159,24 @@ enum class ErrorCode
     /// The table data is invalid or null.
     e_ErrInvalidTable = 94,
 
-    /// The source document uses a feature this SDK cannot lay out yet, so no
-    /// output was produced. Distinct from e_ErrIO: nothing failed on the disk
-    /// or in the writer, the document itself is out of scope.
+    /// The source document uses a feature this SDK cannot fully reproduce,
+    /// or the requested output cannot carry the input's content. A usable
+    /// output may still have been written: Word to PDF normally still
+    /// produces the PDF and reports this in its optional diagnostics.
+    /// Distinct from e_ErrIO: nothing failed on the disk or in the writer.
     e_ErrUnsupportedFeature = 95,
 
     /// Unknown error
     e_ErrUnknown = 100
+};
+
+/// \brief DocumentAI table recognition model profile.
+enum class TableRecognitionAccuracy
+{
+    /// Prioritize recognition accuracy; may use more resources.
+    e_HighAccuracy = 0,
+    /// Balanced recognition accuracy, resource usage, and throughput.
+    e_Balanced = 1,
 };
 
 /// \brief Page layout mode.
@@ -237,6 +259,19 @@ enum class OCROption
     e_All,
 };
 
+/// \brief How the PDF bookmarks (the outline shown in a reader's navigation
+/// panel) are generated when converting a Word document to PDF.
+enum class WordPdfBookmarkMode
+{
+    /// Do not generate bookmarks.
+    e_None = 0,
+    /// One bookmark per heading, that is per paragraph with an outline level,
+    /// nested by level.
+    e_Headings,
+    /// One bookmark per Word bookmark, named after it.
+    e_WordBookmarks,
+};
+
 /// \brief Convert options.
 struct ConvertOptions
 {
@@ -246,10 +281,16 @@ struct ConvertOptions
     /// Whether to enable AI table recognition during conversion.
     bool enable_ai_table_recognition = true;
 
-    /// Whether to contain images when converting,which takes effect only when enable_ocr is false.
+    /// Table recognition accuracy. e_Balanced works with the base documentai.model;
+    /// e_HighAccuracy requires the table_legacy.model package. If the model of the
+    /// requested accuracy is not loaded, the conversion still succeeds, but tables
+    /// are recognized with the rule-based method instead, so the result differs.
+    TableRecognitionAccuracy table_recognition_accuracy = TableRecognitionAccuracy::e_Balanced;
+
+    /// Whether to contain images when converting, which takes effect only when enable_ocr is false.
     bool contain_image = true;
 
-    /// Whether to contain page background images when converting,which takes effect only when enable_ocr is true.
+    /// Whether to contain page background images when converting, which takes effect only when enable_ocr is true.
     bool contain_page_background_image = true;
 
     /// Whether to contain table when convert pdf to json.
@@ -258,7 +299,8 @@ struct ConvertOptions
     /// Whether to contain annotations when converting.
     bool contain_annotation = true;
 
-    /// Whether to set contain all pdf content to the xlsx file.
+    /// Whether to contain all PDF content in the xlsx file, not only tables.
+    /// Ignored when excel_worksheet_option is e_ForTable.
     bool excel_all_content = false;
 
     /// Whether to set to save the table in csv format.
@@ -267,7 +309,9 @@ struct ConvertOptions
     /// Whether to use OCR.
     bool enable_ocr = false;
 
-    /// Whether to make the text transparent in the output document.
+    /// Whether to make the text transparent in the output document. Takes effect only for
+    /// searchable PDF output when contain_page_background_image is true; OFD output always
+    /// uses transparent text.
     bool transparent_text = true;
 
     /// Whether format table when convert pdf to txt.
@@ -285,7 +329,7 @@ struct ConvertOptions
     /// whether to output one document per page.
     bool output_document_per_page = false;
 
-    /// Specify the image scaling of the image file.
+    /// Specify the image scaling of the image file. Must be greater than 0.
     float image_scaling = 4.0;
 
     /// Specify the layout mode.
@@ -306,16 +350,19 @@ struct ConvertOptions
     /// Specify the image type of the image file.
     ImageType image_type = ImageType::e_JPG;
 
-    /// Specify the fontname to convert, e.g. "Arial".
+    /// Specify the preferred font name of the output document, e.g. "Arial". Empty uses the
+    /// default font selection. Takes effect for Word, Excel, PowerPoint, searchable PDF and OFD output.
     char font_name[256] = {0};
 
-    /// Specify the pages to convert, e.g. "1-3,5,7-9".
+    /// Specify the pages to convert, e.g. "1-3,5,7-9". Empty converts every page.
+    /// For Word to PDF it selects the pages of the laid-out document to output.
     char page_ranges[256] = {0};
 
-    /// Specify the OCR language count.
+    /// Specify the number of valid entries in languages (at most 32). When OCR is enabled
+    /// and the count is 0, English is used.
     int language_count = 0;
 
-     /// Specify the OCR languages.
+    /// Specify the OCR languages. Only the first language_count entries are used.
     OCRLanguage languages[32] = {};
 
     /// Whether to classify and correct document orientation before OCR image recognition.
@@ -323,6 +370,25 @@ struct ConvertOptions
 
     /// Whether to apply DocumentAI dewarp before OCR image recognition.
     bool enable_document_dewarp = false;
+
+    /// Whether to size the output page from the image's own resolution, matching it
+    /// to the nearest standard paper. Only takes effect when the input is an image
+    /// file; when disabled, one image pixel becomes one page point.
+    bool enable_auto_page_size = false;
+
+    /// Specify the output page width in points (1 pt = 1/72 inch), or 0 to not
+    /// specify one. Set together with custom_page_height to choose the page
+    /// outright, which takes precedence over enable_auto_page_size. The size is
+    /// used exactly as given, orientation included, and the image is scaled to
+    /// fit inside it without cropping. Only takes effect when the input is an
+    /// image file. For example A4 is 595.28 x 841.89, JIS B5 is 515.91 x 728.50.
+    float custom_page_width = 0.f;
+
+    /// Specify the output page height in points. See \link custom_page_width \endlink.
+    float custom_page_height = 0.f;
+
+    /// How the PDF bookmarks are generated. Only takes effect for Word to PDF.
+    WordPdfBookmarkMode word_pdf_bookmark_mode = WordPdfBookmarkMode::e_None;
 };
 
 }  // namespace base

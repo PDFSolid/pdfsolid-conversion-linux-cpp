@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 #if defined(_WIN32)
-#if defined(COMPDF_LIB)
+#if defined(PDFSOLID_LIB)
 #define PDFSOLID_DECL __declspec(dllexport)
 #else
 #define PDFSOLID_DECL __declspec(dllimport)
